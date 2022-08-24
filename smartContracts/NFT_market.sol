@@ -17,8 +17,8 @@ contract NFTMarket is ReentrancyGuard {
   Counters.Counter private itemsSold;
   uint[] marketItems;
 
-    //MarketItem struct allows us to store records of items that will be 
-    //available in the marketplace 
+  //MarketItem struct allows us to store records of items that will be 
+  //available in the marketplace 
   struct MarketItem {
     uint itemId;
     address nftContract;
@@ -28,7 +28,7 @@ contract NFTMarket is ReentrancyGuard {
     uint256 price;
   }
 
-    //creates key-value pair between MarketItems and ID
+  //creates key-value pair between MarketItems and ID
   mapping(uint256 => MarketItem) private idToMarketItem;
 
   //creating event for creation of market items so it will be 
@@ -54,9 +54,10 @@ contract NFTMarket is ReentrancyGuard {
   ) public payable nonReentrant {
     require(price > 0, "Price must be at least 1 wei");
 
-    _itemIds.increment();
-    uint256 itemId = _itemIds.current();
-  
+   //incrementing itemids by one
+    itemIds.increment();
+    uint256 itemId = itemIds.current();
+   //creating mapping address 
     idToMarketItem[itemId] =  MarketItem(
       itemId,
       nftContract,
@@ -65,9 +66,9 @@ contract NFTMarket is ReentrancyGuard {
       payable(address(0)),
       price
     );
-
+    //facilitate transfer of token and emit transaction by called function
     IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
-
+    
     emit MarketItemCreated(
       itemId,
       nftContract,
@@ -90,6 +91,7 @@ contract NFTMarket is ReentrancyGuard {
 
     idToMarketItem[itemId].seller.transfer(msg.value);
     IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
+    //updates local mapping
     idToMarketItem[itemId].owner = payable(msg.sender);
     _itemsSold.increment();
   }
@@ -99,7 +101,7 @@ contract NFTMarket is ReentrancyGuard {
     MarketItem memory item = idToMarketItem[itemId];
     return item;
   }
-
+  //returning market itemids that have not be sold 
   function fetchMarketItems() public view returns (MarketItem[] memory) {
     uint itemCount = _itemIds.current();
     uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
