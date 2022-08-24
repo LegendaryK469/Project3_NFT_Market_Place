@@ -15,7 +15,7 @@ contract NFT is ERC721URIStorage {
     Counters.Counter private _tokenIds;
     address contractAddress;
 
-    //The contstructor takes an argument for the `marketplace` address, 
+    //The contstructor takes an argument for the `mrketplace` address, 
     //saving the value and making it available in the smart contract.
     constructor(address mrktplace) ERC721("Eat The Blocks NFTs", "ETBNFT") {
         contractAddress = mrktplace;
