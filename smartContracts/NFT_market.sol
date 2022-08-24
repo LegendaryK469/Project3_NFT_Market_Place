@@ -11,8 +11,11 @@ import "hardhat/console.sol";
 // ready for later use
 contract NFTMarket is ReentrancyGuard {
   using Counters for Counters.Counter;
-  Counters.Counter private _itemIds;
-  Counters.Counter private _itemsSold;
+  //keeping track of item ids
+  Counters.Counter private itemIds;
+  //keeping track of item ids sold
+  Counters.Counter private itemsSold;
+  uint[] marketItems;
 
     //MarketItem struct allows us to store records of items that will be 
     //available in the marketplace 
