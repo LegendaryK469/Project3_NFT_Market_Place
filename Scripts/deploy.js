@@ -19,3 +19,4 @@ async function main() {
     await nft.deployed();
     console.log("nft deployed to:", nft.address);
   }
+
