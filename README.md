@@ -32,6 +32,6 @@ After compiling and deploying the contract, it is important to test its function
    ![NFT Market Sale](Images/MarketSale.png)
 
 4. Transaction Buy: Bought 1 NFT
-   ![NFT Market Purchase]((Images/Marketbuy.png)
+   ![NFT Market Purchase](Images/Marketbuy.png)
 
 There also screen recordings of the smart contract compiling, deploying smart contract then creating token.  Also the sale and purchase of NFT's.
