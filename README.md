@@ -26,12 +26,12 @@ After compiling and deploying the contract, it is important to test its function
    ![Deployed Contract](Images/Deploy.png)
 
 2. Create Token: Created Token named SafeMoon
-   ![Create Token](mages/CreateTokens.png)
+   ![Create Token](Images/CreateTokens.png)
 
 3. Transaction Sale: Sale 1 NFT
-   ![NFT Market Sale](mages/MarketSale.png)
+   ![NFT Market Sale](Images/MarketSale.png)
 
 4. Transaction Buy: Bought 1 NFT
-   ![NFT Market Purchase]((mages/Marketbuy.png)
+   ![NFT Market Purchase]((Images/Marketbuy.png)
 
 There also screen recordings of the smart contract compiling, deploying smart contract then creating token.  Also the sale and purchase of NFT's.
